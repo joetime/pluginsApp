@@ -3,6 +3,16 @@ angular.module('starter').service('logService', function() {
     var logs = [];
     var listeners = [];
 
+    window.onerror = function(message, url, lineNumber) {
+
+        log(message, {
+            url: url,
+            lineNumber: lineNumber
+        });
+        //save error and send to server for example.
+        return true;
+    };
+
     return {
         log: log,
         logs: logs,
