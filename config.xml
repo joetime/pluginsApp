@@ -17,14 +17,18 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
+  <preference name="Orientation" value="landscape"/>
+
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
+  
   <plugin name="cordova-plugin-device" spec="~1.1.2"/>
   <plugin name="cordova-plugin-console" spec="~1.0.3"/>
   <plugin name="cordova-plugin-whitelist" spec="~1.2.2"/>
   <plugin name="cordova-plugin-splashscreen" spec="~3.2.2"/>
   <plugin name="cordova-plugin-statusbar" spec="~2.1.3"/>
+  <gap:plugin name="cordova-plugin-camera"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
   <platform name="ios">
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
