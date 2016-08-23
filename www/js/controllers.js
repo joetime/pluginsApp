@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PluginsCtrl', function($scope, logService, $cordovaCamera, $cordovaGeolocation) {
+.controller('PluginsCtrl', function($scope, logService, /*$cordovaCamera,*/ $cordovaGeolocation) {
 
   var log = logService.log;
   log('PluginsCtrl init');
@@ -90,7 +90,8 @@ angular.module('starter.controllers', [])
   $scope.pictureClick = function() {
     log('pictureClick()');
 
-    $cordovaCamera.getPicture($scope.cameraOptions).then(function(imageData) {
+    //$cordovaCamera
+    navigator.camera.getPicture($scope.cameraOptions).then(function(imageData) {
       var image = document.getElementById('cameraImage');
       image.src = "data:image/jpeg;base64," + imageData;
     }, function(err) {
