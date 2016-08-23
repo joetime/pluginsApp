@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, backandService, $cordovaCamera) {
+.controller('DashCtrl', function($scope, backandService, logService) {
+
+  var log = logService.log;
+  log('DashCtrl init');
 
   var counter = 0;
   $scope.allItems = [];
@@ -13,18 +16,18 @@ angular.module('starter.controllers', [])
   function init() {
     $scope.itemName = '';
     backandService.getTodos().then(function(d) {
-      console.log('list received', d);
+      log('list received', d);
       $scope.allItems = d.data.data;
     });
   }
 
   $scope.addItem = function() {
     var txt = $scope.item.name;
-    console.log(txt)
+    log(txt)
     backandService.addTodo({
       name: txt + '-' + counter++
     }).then(function(d) {
-      console.log('object added: ', d);
+      log('object added: ', d);
       init();
     });
   }
@@ -66,13 +69,13 @@ angular.module('starter.controllers', [])
   $scope.picture = null;
   $scope.cameraOptions = {
     quality: 50,
-    destinationType: Camera.DestinationType.DATA_URL,
-    sourceType: Camera.PictureSourceType.CAMERA,
+    /*destinationType: Camera.DestinationType.DATA_URL,
+    sourceType: Camera.PictureSourceType.CAMERA,*/
     allowEdit: true,
-    encodingType: Camera.EncodingType.JPEG,
+    //encodingType: Camera.EncodingType.JPEG,
     targetWidth: 800,
     targetHeight: 600,
-    popoverOptions: CameraPopoverOptions,
+    //popoverOptions: CameraPopoverOptions,
     saveToPhotoAlbum: false,
     correctOrientation: true
   };
