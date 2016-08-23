@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, backandService) {
+.controller('DashCtrl', function($scope, backandService, $cordovaGeolocation) {
 
   var counter = 0;
   $scope.allItems = [];
